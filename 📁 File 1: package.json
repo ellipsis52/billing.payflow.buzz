@@ -1,0 +1,10 @@
+
+{
+  "name": "checkout-billing-payflow-buzz",
+  "version": "1.0.0",
+  "description": "PayFlow Billing Checkout — billing.payflow.buzz",
+  "private": true,
+  "scripts": {
+    "build": "exit 0"
+  }
+}
