@@ -2,7 +2,7 @@
 {
   "name": "checkout-billing-payflow-buzz",
   "version": "1.0.0",
-  "description": "PayFlow Billing Checkout — billing.payflow.buzz",
+  "description": "PayFlow PRO Checkout — payflow-f6ieekxt.manus.space",
   "private": true,
   "scripts": {
     "build": "exit 0"

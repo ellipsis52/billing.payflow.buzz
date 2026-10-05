@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="PayFlow — Secure Checkout | billing.payflow.buzz">
+<meta name="description" content="PayFlow PRO — Secure Checkout | payflow-f6ieekxt.manus.space">
 <title>PayFlow — Secure Checkout</title>
 <style>
 :root{
@@ -242,23 +242,21 @@ body{font-family:var(--pf-font);background:var(--pf-bg);color:var(--pf-text);min
 </div>
 
 <div class="pf-footer">
-  <div class="pf-powered">Powered by <a href="https://payflow.buzz"><strong>PayFlow</strong></a> &#8212; billing.payflow.buzz</div>
+  <div class="pf-powered">Powered by <a href="https://payflow.buzz"><strong>PayFlow</strong></a> &#8212; payflow-f6ieekxt.manus.space</div>
   <div>UBS Switzerland AG &#183; IBAN CH640027427417815240L &#183; SWIFT UBSWCHZH80A</div>
 </div>
 
 <script>
 var CONFIG = {
-  BILLING_ORIGIN: 'https://billing.payflow.buzz',
-  API_ORIGIN: 'https://api.payflow.buzz',
-  API_BASE: 'https://api.payflow.buzz/v1',
+  API_BASE: 'https://payflow-f6ieekxt.manus.space',
   PUBLISHABLE_KEY: 'pk_live_3e7b9f2a8c4d1a6f5b0e9d3c7a2f8e4b',
   PROCESSOR_ID: '6aa595af1dd0153c4912b6b2',
   BILLING_PROCESSOR_ID: '6abed91119c33cf28506b451',
-  WEBHOOK_URL: 'https://api.payflow.buzz/v1/webhooks',
+  WEBHOOK_URL: 'https://payflow-f6ieekxt.manus.space/api/webhooks/paypal',
   BANK_NAME: 'UBS Switzerland AG',
   BANK_IBAN: 'CH640027427417815240L',
   BANK_SWIFT: 'UBSWCHZH80A',
-  DOMAIN: 'billing.payflow.buzz',
+  DOMAIN: 'payflow-f6ieekxt.manus.space',
   ROUTES: {
     checkout: '/checkout',
     success: '/checkout/payment/success',
@@ -268,7 +266,7 @@ var CONFIG = {
 };
 
 function apiUrl(path) {
-  return CONFIG.API_ORIGIN + '/v1' + path;
+  return CONFIG.API_BASE + path;
 }
 
 var PLAN_PRICES = {
@@ -471,7 +469,7 @@ document.getElementById('pf-pay-btn').addEventListener('click', function() {
     source: CONFIG.DOMAIN
   };
 
-  fetch(apiUrl('/payment-intents'), {
+  fetch(apiUrl('/api/create-order'), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + CONFIG.PUBLISHABLE_KEY },
     body: JSON.stringify(intentBody)
