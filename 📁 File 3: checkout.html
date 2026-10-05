@@ -248,6 +248,8 @@ body{font-family:var(--pf-font);background:var(--pf-bg);color:var(--pf-text);min
 
 <script>
 var CONFIG = {
+  BILLING_ORIGIN: 'https://billing.payflow.buzz',
+  API_ORIGIN: 'https://api.payflow.buzz',
   API_BASE: 'https://api.payflow.buzz/v1',
   PUBLISHABLE_KEY: 'pk_live_3e7b9f2a8c4d1a6f5b0e9d3c7a2f8e4b',
   PROCESSOR_ID: '6aa595af1dd0153c4912b6b2',
@@ -264,6 +266,10 @@ var CONFIG = {
     cancelled: '/checkout/payment/cancelled'
   }
 };
+
+function apiUrl(path) {
+  return CONFIG.API_ORIGIN + '/v1' + path;
+}
 
 var PLAN_PRICES = {
   starter:    { CHF: 29, EUR: 29, USD: 32, GBP: 25 },
@@ -465,7 +471,7 @@ document.getElementById('pf-pay-btn').addEventListener('click', function() {
     source: CONFIG.DOMAIN
   };
 
-  fetch(CONFIG.API_BASE + '/payment-intents', {
+  fetch(apiUrl('/payment-intents'), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + CONFIG.PUBLISHABLE_KEY },
     body: JSON.stringify(intentBody)
